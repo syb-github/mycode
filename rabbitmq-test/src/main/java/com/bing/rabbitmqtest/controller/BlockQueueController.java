@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * 阻塞队列
+ * 阻塞队列1
  * @author sunyibing
  * @date 2024/4/2
  */
