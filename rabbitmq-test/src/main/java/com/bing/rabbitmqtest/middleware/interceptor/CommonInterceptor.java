@@ -25,12 +25,12 @@ import javax.servlet.http.HttpServletResponse;
 public class CommonInterceptor implements HandlerInterceptor {
     /**
      * 在请求到达处理器之前执行，可以用于权限验证、数据校验等操作。如果返回true，则继续执行后续操作；如果返回false，则中断请求处理
-     * @param request
      * @param response
      * @param handler
      * @return
      * @throws Exception
      */
+    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("拦截器执行了1");
         return true;
@@ -44,6 +44,7 @@ public class CommonInterceptor implements HandlerInterceptor {
      * @param modelAndView
      * @throws Exception
      */
+    @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
         System.out.println("拦截器执行了2");
     }
@@ -56,6 +57,7 @@ public class CommonInterceptor implements HandlerInterceptor {
      * @param ex
      * @throws Exception
      */
+    @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         System.out.println("拦截器执行了3");
     }

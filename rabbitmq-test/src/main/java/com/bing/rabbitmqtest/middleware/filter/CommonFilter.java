@@ -21,7 +21,7 @@ import java.io.IOException;
 public class CommonFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("CommonFilter过滤器初始化12");
+        System.out.println("CommonFilter过滤器1初始化");
         Filter.super.init(filterConfig);
     }
 

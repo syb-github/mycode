@@ -1,7 +1,6 @@
 package com.bing.rabbitmqtest.middleware.controller;
 
-import com.bing.rabbitmqtest.service.LockServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.bing.rabbitmqtest.middleware.service.LockServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

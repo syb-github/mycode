@@ -1,4 +1,4 @@
-package com.bing.rabbitmqtest.middleware.entity;
+package com.bing.rabbitmqtest.middleware.dto;
 
 import lombok.Data;
 
@@ -12,17 +12,12 @@ import javax.persistence.Table;
  * @author sunyibing
  * @date 2024/4/2
  */
-@Table(name = "USER")
-@Entity
-@Data
-public class User {
-    @Id
-    private String id;
-    @Column(name = "NAME", nullable = false)
-    private String name;
-    @Column(name = "AGE", nullable = false)
-    private Integer age;
-    @Column(name = "PASSWORD", nullable = false)
-    private String password;
 
+@Data
+public class UserDto {
+    private String id;
+    private String name;
+    private Integer age;
+    private String password;
+    private String username;
 }

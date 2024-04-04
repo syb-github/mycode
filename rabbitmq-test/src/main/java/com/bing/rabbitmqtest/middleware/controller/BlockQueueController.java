@@ -1,7 +1,7 @@
 package com.bing.rabbitmqtest.middleware.controller;
 
 import com.bing.rabbitmqtest.middleware.entity.User;
-import com.bing.rabbitmqtest.service.BlockQueueServiceImpl;
+import com.bing.rabbitmqtest.middleware.service.BlockQueueServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

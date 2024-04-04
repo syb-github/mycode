@@ -1,6 +1,6 @@
 package com.bing.rabbitmqtest.middleware.controller;
 
-import com.bing.rabbitmqtest.service.RedisTest;
+import com.bing.rabbitmqtest.middleware.service.RedisTest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
