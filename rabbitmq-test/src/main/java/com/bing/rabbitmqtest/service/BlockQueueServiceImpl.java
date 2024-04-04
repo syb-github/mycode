@@ -1,6 +1,6 @@
 package com.bing.rabbitmqtest.service;
 
-import com.bing.rabbitmqtest.entity.User;
+import com.bing.rabbitmqtest.middleware.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
