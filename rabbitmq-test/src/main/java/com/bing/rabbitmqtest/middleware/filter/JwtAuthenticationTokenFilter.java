@@ -5,6 +5,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.bing.rabbitmqtest.exception.TokenNotFoundException;
 import com.bing.rabbitmqtest.middleware.dto.UserDto;
 import com.bing.rabbitmqtest.middleware.entity.User;
 import com.bing.rabbitmqtest.middleware.service.UserService;
@@ -22,6 +23,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.InvalidParameterException;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,9 +47,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         }
         // 获取header中的token
         String token = request.getHeader("token");
-        if(StringUtils.isNotBlank(token) && token.startsWith("Bearer")){
-            token = token.substring(7);
-        } else {
+        if(StringUtils.isBlank(token)){
             // 放行
             filterChain.doFilter(request, response);
             return;

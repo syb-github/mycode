@@ -26,7 +26,7 @@ public class JwtUtil {
         Calendar calendar = Calendar.getInstance();
         // 设置过期时间  30分钟
         calendar.add(Calendar.MINUTE, 30);
-        return JWT.create().withClaim("user", userId)
+        return JWT.create().withClaim("userId", userId)
                 .withExpiresAt(calendar.getTime())
                 .sign(Algorithm.HMAC384(TOKEN_SECRET));
     }

@@ -44,11 +44,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.cors().and().
+                csrf().disable()
                 // 不通过Session获取SecurityContext
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 // 允许放行
-                .and().authorizeRequests().antMatchers("/login/**").permitAll()
+                .and().authorizeRequests().antMatchers("/login/**", "/logina/**").permitAll()
                 // 除login 其余都要验证
                 .anyRequest().authenticated()
                 .and()
