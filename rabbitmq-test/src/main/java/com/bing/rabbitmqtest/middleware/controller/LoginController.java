@@ -6,8 +6,10 @@ import com.bing.rabbitmqtest.utils.JwtUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -18,13 +20,18 @@ import javax.security.auth.login.LoginException;
  * @author sunyibing
  * @date 2024/4/4
  */
-@RestController
+@Controller
 @RequestMapping(path = "/")
 public class LoginController {
 
     @Resource
     private AuthenticationManager authenticationManager;
+    @RequestMapping(name = "", path = "/toLogin")
+    public String toLogin () {
+        return "login.html";
+    }
     @GetMapping(name = "", path = "/login")
+    @ResponseBody
     public Result login (String username, String password) throws LoginException {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         Authentication authentication= authenticationManager.authenticate(authenticationToken);

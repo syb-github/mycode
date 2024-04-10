@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import javax.annotation.Resource;
 
 /**
- * spring security 配置 (认证授权)
+ * spring security 配置 (认证授权)  责任链模式
  * @author sunyibing
  * @date 2024/4/4
  */
@@ -42,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
     private UserDetailsService userDetailsService;
+    // 认证
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().
@@ -49,20 +50,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 不通过Session获取SecurityContext
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 // 允许放行
-                .and().authorizeRequests().antMatchers("/login/**", "/logina/**").permitAll()
+                .and().authorizeRequests().antMatchers("/login/**", "/logina/**", "/static/**").permitAll()
                 // 除login 其余都要验证
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
 //                .authenticationProvider()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin().loginPage("/toLogin").permitAll()
                 .successHandler(authenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)
                 .and().logout().logoutUrl("/logout")
                 .logoutSuccessHandler(logoutSuccessHandler).permitAll();
 
     }
-
+    // 授权
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
