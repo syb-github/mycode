@@ -50,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 不通过Session获取SecurityContext
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 // 允许放行
-                .and().authorizeRequests().antMatchers("/login/**", "/logina/**", "/static/**").permitAll()
+                .and().authorizeRequests().antMatchers("/login/**", "/logina/**", "/static/**", "/websocket/**").permitAll()
                 // 除login 其余都要验证
                 .anyRequest().authenticated()
                 .and()
