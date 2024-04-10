@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private CustomAuthenticationFailureHandler authenticationFailureHandler;
 
+    String[] matchsUrl = {"/login/**", "/logina/**", "/static/**", "/websocket/**", "/mqtt/**"};
     @Resource
     private UserDetailsService userDetailsService;
     // 认证
@@ -50,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 不通过Session获取SecurityContext
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 // 允许放行
-                .and().authorizeRequests().antMatchers("/login/**", "/logina/**", "/static/**", "/websocket/**").permitAll()
+                .and().authorizeRequests().antMatchers(matchsUrl).permitAll()
                 // 除login 其余都要验证
                 .anyRequest().authenticated()
                 .and()
