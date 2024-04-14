@@ -1,7 +1,7 @@
 # 服务端口号
 server:
-  port: 8080
-
+#  port: 8080
+  port: 80
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/test?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
@@ -60,5 +60,25 @@ rocketmq:
   producer:
     group: provider-group
 
+
+weixin:
+  appId: wx15a027e325d0ed8b
+  secret: 63c3e84401a09f526d026077ce159ed2
+
+weixingzh:
+#  appId: wxfc97369dec7affae
+#  secret: 3ae9dad55e54029694c78be4b10c86f5
+  appId: wxda2b2ff6fadeadd2
+  secret: b33fb975fab25cbdbf2ad381c8f3b631
+# token配置
+token:
+  # token 值
+  value: syb951007
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌秘钥
+  secret: 5aKm2rcGIVaOMLPy9ZdThklBUV4DD7iTucDCVVa6pu5
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
 
 

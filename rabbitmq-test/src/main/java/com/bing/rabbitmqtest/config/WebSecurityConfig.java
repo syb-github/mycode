@@ -40,7 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private CustomAuthenticationFailureHandler authenticationFailureHandler;
 
-    String[] matchsUrl = {"/login/**", "/logina/**", "/static/**", "/websocket/**", "/mqtt/**", "/rocketmq/**"};
+    String[] matchsUrl = {"/toLogin/**","/login/**", "/logina/**", "/static/**",
+            "/websocket/**", "/mqtt/**", "/rocketmq/**", "/mini-login/**", "/wx/**"};
     @Resource
     private UserDetailsService userDetailsService;
     // 认证
