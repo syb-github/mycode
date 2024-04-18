@@ -19,7 +19,7 @@
 ![img_6.png](img_6.png) 
 
     2.3、启动kafka前要先启动zookeeper   zkServer    
-    2.4、启动kafka :kafka-server-start.bat .\config\server.properties      
+    2.4、启动kafka    kafka-server-start.bat ../../config/server.properties      
 
 ![img_7.png](img_7.png)
 

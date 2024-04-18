@@ -59,12 +59,23 @@ spring:
     bootstrap-servers: http://localhost:9092
     consumer: # 指定默认消费者group id
       group-id: myGroup
+      #每次最大消费记录
+      max-poll-records: 100
+
+#      enable-auto-commit: false
     template: # 指定默认topic id
       default-topic: tsc_dsc_newMsg
     listener: # 指定listener 容器中的线程数，用于提高并发量
       concurrency: 5
+#      ack-mode: manual     #手动确认
+      type: batch  # bacth 批量消费  single 单条消费
     producer: # 每次批量发送消息的数量
       batch-size: 1000
+      # 声明事务需 事务id前缀
+      transaction-id-prefix: test_
+      retries: 3
+
+
 
 # rocketmq
 rocketmq:

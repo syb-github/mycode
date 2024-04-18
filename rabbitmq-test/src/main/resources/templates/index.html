@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      >
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<!--<script src="/static/js/element-ui2.15.14.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>-->
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<!--<link rel="stylesheet" href="/static/css/element-ui2.15.14.css" />-->
+<style type="text/css">
+
+</style>
+
+<body>
+<div id="app">
+    用户名称
+    <label>
+        <input :value="name"/>
+        <span>
+            {{ name }}
+        </span>
+    </label>
+    <span th:text="${user.name}"></span>
+</div>
+</body>
+<script th:inline="javascript">
+    const vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                name: '1',
+                user: [[${user}]]
+            }
+        },
+        mounted() {
+            console.log(111)
+            console.log(this.user)
+        }
+    })
+</script>
+</html>
